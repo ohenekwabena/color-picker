@@ -9,7 +9,7 @@ logs
 **/*.backup.*
 **/*.back.*
 
-node_modules
+/node_modules
 bower_components
 
 *.sublime*
@@ -17,6 +17,15 @@ bower_components
 psd
 thumb
 sketch
+
+# Dependency directories
+/node_modules
+
+# Parcel directory
+/dist
+
+# Cache directory
+/.cache
 
 ### VisualStudioCode ###
 .vscode/*
