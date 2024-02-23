@@ -30,10 +30,6 @@ const InnerWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 20px;
-
-  @media (max-width: 400px) {
-    grid-template-rows: 1fr auto;
-  }
 `;
 
 const ColorWheel = styled.div`
