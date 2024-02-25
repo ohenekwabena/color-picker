@@ -27379,54 +27379,112 @@ function RandomColor() {
     _s();
     const [colorType, setColorType] = (0, _react.useState)("hex");
     const [color, setColor] = (0, _react.useState)("#000000");
+    function randomUtility(length) {
+        return Math.floor(Math.random() * length);
+    }
+    function handleCreateRandomColor(colorType) {
+        if (colorType === "hex") {
+            const hex = [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                "A",
+                "B",
+                "C",
+                "D",
+                "E",
+                "F"
+            ];
+            let hexColor = "#";
+            for(let i = 0; i < 6; i++)hexColor += hex[randomUtility(hex.length)];
+            setColor(hexColor);
+        }
+        if (colorType === "rgb") {
+            const r = randomUtility(256);
+            const g = randomUtility(256);
+            const b = randomUtility(256);
+            setColor(`rgb(${r}, ${g}, ${b})`);
+        }
+        if (colorType === "hsl") {
+            const h = randomUtility(360);
+            const s = randomUtility(100);
+            const l = randomUtility(100);
+            setColor(`hsl(${h}, ${s}%, ${l}%)`);
+        }
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Wrapper, {
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(InnerWrapper, {
             children: [
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ColorWheel, {
-                    color: color
+                    color: color,
+                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
+                        children: color
+                    }, void 0, false, {
+                        fileName: "src/component/RandomColor.js",
+                        lineNumber: 44,
+                        columnNumber: 11
+                    }, this)
                 }, void 0, false, {
                     fileName: "src/component/RandomColor.js",
-                    lineNumber: 12,
+                    lineNumber: 43,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ButtonGroup, {
                     children: [
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ColorButton, {
+                            onClick: ()=>setColorType("rgb"),
                             children: "RGB"
                         }, void 0, false, {
                             fileName: "src/component/RandomColor.js",
-                            lineNumber: 14,
+                            lineNumber: 47,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ColorButton, {
+                            onClick: ()=>setColorType("hex"),
                             children: "HEX"
                         }, void 0, false, {
                             fileName: "src/component/RandomColor.js",
-                            lineNumber: 15,
+                            lineNumber: 48,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ColorButton, {
+                            onClick: ()=>setColorType("hsl"),
+                            children: "HSL"
+                        }, void 0, false, {
+                            fileName: "src/component/RandomColor.js",
+                            lineNumber: 49,
+                            columnNumber: 11
+                        }, this),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ColorButton, {
+                            onClick: ()=>handleCreateRandomColor(colorType),
                             children: "Random Color"
                         }, void 0, false, {
                             fileName: "src/component/RandomColor.js",
-                            lineNumber: 16,
+                            lineNumber: 50,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/component/RandomColor.js",
-                    lineNumber: 13,
+                    lineNumber: 46,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/component/RandomColor.js",
-            lineNumber: 11,
+            lineNumber: 42,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/component/RandomColor.js",
-        lineNumber: 10,
+        lineNumber: 41,
         columnNumber: 5
     }, this);
 }
@@ -27442,10 +27500,6 @@ const InnerWrapper = (0, _styledComponentsDefault.default).div`
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 20px;
-
-  @media (max-width: 400px) {
-    grid-template-rows: 1fr auto;
-  }
 `;
 _c2 = InnerWrapper;
 const ColorWheel = (0, _styledComponentsDefault.default).div`
@@ -27453,6 +27507,16 @@ const ColorWheel = (0, _styledComponentsDefault.default).div`
   height: 400px;
   background-color: ${({ color })=>color};
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & p {
+    font-size: 1.5rem;
+    background-color: oldlace;
+    padding: 6px 10px;
+    border-radius: 12px;
+  }
 `;
 _c3 = ColorWheel;
 const ButtonGroup = (0, _styledComponentsDefault.default).div`
@@ -28422,7 +28486,7 @@ var mt = function() {
 var vt = "__sc-".concat(f, "__");
 "undefined" != typeof window && (window[vt] || (window[vt] = 0), 1 === window[vt] && console.warn("It looks like there are several instances of 'styled-components' initialized in this application. This may cause dynamic styles to not render properly, errors during the rehydration process, a missing theme prop, and makes your application bigger without good reason.\n\nSee https://s-c.sh/2BAXzed for more info."), window[vt] += 1);
 
-},{"50571207bc3cae02":"d5jf4","tslib":"lRdW5","@emotion/is-prop-valid":"9JzNk","react":"21dqq","shallowequal":"fjwkp","stylis":"bMCXt","@emotion/unitless":"2Tu84","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lRdW5":[function(require,module,exports) {
+},{"50571207bc3cae02":"d5jf4","tslib":"gUXGc","@emotion/is-prop-valid":"9JzNk","react":"21dqq","shallowequal":"fjwkp","stylis":"bMCXt","@emotion/unitless":"2Tu84","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gUXGc":[function(require,module,exports) {
 /******************************************************************************
 Copyright (c) Microsoft Corporation.
 
